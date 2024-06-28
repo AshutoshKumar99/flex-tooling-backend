@@ -32,7 +32,7 @@ pipeline {
                     sshagent(credentials: ['ubuntu-ssh']) { // SSH credentials for the remote server
                         sh """
                             ssh ubuntu@54.183.204.142 -o StrictHostKeyChecking=no \\
-                            nohup java -jar ${WORKSPACE}/target/flex-tooling-0.0.1-SNAPSHOT.jar & // Run the JAR file in the background
+                            nohup java -jar ${WORKSPACE}/target/flex-tooling-0.0.1-SNAPSHOT.jar & // Run the JAR file in the background,StrictHostKeyChecking=no ( used to bypass SSH key verification for the server.)
                         """
                     }
                 }
